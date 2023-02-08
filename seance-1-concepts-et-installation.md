@@ -161,7 +161,7 @@ Cette structure est la base, vous pouvez l'organiser autrement, et ajouter toute
 
 Ce fichier est construit selon la structure "classique" de Vue.js, décrite dans la partie suivante.
 
-```javascript
+```html
 <script setup>
   const symfony = 18
   const integration = 16
@@ -223,8 +223,96 @@ C'est le fichier clé de votre application, l'équivalent du index.php de Symfon
 
 ### Templates
 
-#### Variable, structuration, données (simple variable, objet json, quelques exemples)
+#### Dans du code HTML
 
-###
+Vue utilise une syntaxe de template basée sur HTML pour permettre de lier de manière déclarative le DOM rendu aux données de l'instance du composant sous-jacent. Tous les templates Vue sont du HTML syntaxiquement valide qui peut être analysé par des navigateurs et des analyseurs HTML conformes aux spécifications. A titre de comparaison ReactJs utilise du JSX pour décrire la partie HTML.
+
+La forme la plus élémentaire de liaison de données est l'interpolation de texte à l'aide de la syntaxe "Moustache" (doubles accolades) :&#x20;
+
+```javascript
+Message : {{ msg }}
+```
+
+Dans cet exemple `msg` est une variable dont le contenu doit être défini dans votre code Vue.js.
+
+#### Dans des attributs ou des balises
+
+Si vous souhaitez passer une variable dans une balise HTML (ou un composant Vue.js), ou dans un attribut, vous ne pouvez pas utiliser la syntaxe "moustache" avec les accolades. Vous devez passer par l'instruction `v-bind`, exemple :&#x20;
+
+```html
+<div v-bind:id="idDynamique"></div>
+```
+
+Dans cet exemple `idDynamique` est donc la variable qui alimentera l'attribut **id** de la balise `div.`
+
+Il existe une syntaxe "courte" qui peut s'écrire sans le `v-bind` comme ci-dessous :&#x20;
+
+```html
+<div :id="idDynamique"></div>
+```
+
+#### Passer plusieurs attributs 
+
+Si vous avez un objet JavaScript représentant plusieurs attributs qui ressemble à ceci :
+
+```javascript
+const objectOfAttrs = {
+  id: 'conteneur',
+  class: 'wrapper'
+}
+```
+
+Vous pouvez les lier à un seul élément en utilisant `v-bind` sans argument :
+
+```html
+<div v-bind="objectOfAttrs"></div>
+```
+
+Cette syntaxe va faire apparaître les deux attributs id et class dans votre objet. Le `v-bind` est ici obligatoire, il n'y a pas de syntaxe courte.
+
+#### Manipulation des variables
+
+Les variables entre accolades peuvent être manipulées comme toutes les variables, comme dans les exemples ci-dessous.
+
+```html
+{{ nombre + 1 }}
+
+{{ ok ? 'OUI' : 'NON' }}
+
+{{ message.split('').reverse().join('') }}
+```
+
+#### Concaténer des variables et du texte
+
+Si vous souhaitez construire un mot contenant du texte et une variable, vous pouvez utiliser la syntaxe ci-dessous :&#x20;
+
+```html
+<div :id="`liste-${id}`"></div>
+```
+
+`${id}` est la variable `id` dans la notation particulière dans le contexte d'une concaténation avec du texte et avec l'usage des \`\`
+
+### Manipuler les variables du côté javascript
+
+Coté JavaScript, la déclaration des variables se fait de manière conventionnelle avec des constants, ou des variables (let), des variables simples (textes, nombres, float, ...) ou des tableaux, des objets json.
+
+```javascript
+<script setup>
+  const symfony = 18
+  const matieres = {
+    var1: 2,
+    var2: 3
+    }
+  const notes = [12, 13, 17]
+</script>
+```
+
+## Exercice
+
+* Installation de Vue.js
+* Modifiez le composant App.vue pour ajouter des variables : un titre et un paragraphe de texte
+* Créer un deuxième composant. Comment l'ajouteriez vous dans le composant App.vue ?
+
+
 
 \

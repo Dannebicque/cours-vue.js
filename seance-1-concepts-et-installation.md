@@ -186,11 +186,32 @@ li {
 
 #### Structure d'un fichier Vue.js (.vue)
 
-Si on utilise vue en mode "composant" (c'est à dire avec des fichiers .vue) et en mode Composition API, un fichier .vue à les éléments suivants :&#x20;
+Si on utilise vue en mode "composant" ([https://fr.vuejs.org/guide/scaling-up/sfc.html#introduction](https://fr.vuejs.org/guide/scaling-up/sfc.html#introduction)) (c'est à dire avec des fichiers .vue ou SFC (_single file component_)) et en mode Composition API, un fichier .vue à les éléments suivants :&#x20;
 
 * template : qui contient le code HTML de votre composant (une partie de votre page). Ce code peut exploiter lui même d'autres composants Vue.js. La balise template doit contenir un seul enfant dans le dom.
 * script : qui va contenir votre code JavaScript : les variables, les méthodes, les différents imports...
 * style : optionnel, pour contenir le CSS propre au composant.
+
+{% hint style="info" %}
+### Pourquoi les composants monofichiers (SFC)[#](https://fr.vuejs.org/guide/scaling-up/sfc.html#why-sfc) <a href="#why-sfc" id="why-sfc"></a>
+
+Si les SFC nécessitent une étape de compilation, les avantages sont nombreux en contrepartie :
+
+* Créer des composants modulaires en utilisant une syntaxe HTML, CSS et JavaScript familière.
+* [Collocation de responsabilités couplées](https://fr.vuejs.org/guide/scaling-up/sfc.html#qu-en-est-il-de-la-separation-des-responsabilites)
+* Templates précompilés sans coût de compilation au runtime
+* [CSS à portée limitée au composant](https://fr.vuejs.org/api/sfc-css-features.html)
+* [Syntaxe plus confortable avec l'API de Composition](https://fr.vuejs.org/api/sfc-script-setup.html)
+* Meilleures optimisations à la compilation grâce à l'analyse croisée du template et des scripts.
+* [Support des environnements de développement](https://fr.vuejs.org/guide/scaling-up/tooling.html#ide-support) avec autocomplétion et vérification des types pour les expressions dans le template.
+* Prise en charge nativement du remplacement de modules à chaud (HMR).
+
+SFC est une caractéristique déterminante de Vue en tant que framework, et c'est l'approche recommandée pour utiliser Vue dans les scénarios suivants :
+
+* Applications à page unique (SPA)
+* Génération de sites statiques (SSG)
+* Tout front-end non trivial pour lequel une étape de construction peut être justifiée pour une meilleure expérience de développement (DX).
+{% endhint %}
 
 #### Détail du fichier main.js
 
@@ -307,12 +328,13 @@ Coté JavaScript, la déclaration des variables se fait de manière conventionne
 </script>
 ```
 
-## Exercice
+## Exercices
 
 * Installation de Vue.js
 * Modifiez le composant App.vue pour ajouter des variables : un titre et un paragraphe de texte
 * Créer un deuxième composant. Comment l'ajouteriez vous dans le composant App.vue ?
 * Ajoutez 3 variables (note1, note2 et note3) et affichez ces 3 notes et la moyenne.
+* Ajoutez une variable de type tableau contenant une liste de mot. Affichez cette liste.
 
 
 

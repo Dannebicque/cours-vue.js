@@ -312,6 +312,7 @@ Coté JavaScript, la déclaration des variables se fait de manière conventionne
 * Installation de Vue.js
 * Modifiez le composant App.vue pour ajouter des variables : un titre et un paragraphe de texte
 * Créer un deuxième composant. Comment l'ajouteriez vous dans le composant App.vue ?
+* Ajoutez 3 variables (note1, note2 et note3) et affichez ces 3 notes et la moyenne.
 
 
 

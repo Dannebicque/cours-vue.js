@@ -103,4 +103,125 @@ En comparaison, `v-show` est beaucoup plus simple - l'élément est toujours ren
 
 De manière générale, `v-if` a des coûts de basculement plus élevés tandis que `v-show` a des coûts de rendu initiaux plus élevés. Préférez donc `v-show` si vous avez besoin de basculer quelque chose très souvent, et préférez `v-if` si la condition est peu susceptible de changer à l'exécution.
 
-``
+## Les boucles
+
+{% hint style="info" %}
+Extrait de la traduction de la page : [https://vuejs.org/guide/essentials/list.html](https://vuejs.org/guide/essentials/list.html)
+{% endhint %}
+
+### `v-for` <a href="#v-for" id="v-for"></a>
+
+Nous pouvons utiliser la directive `v-for` pour rendre une liste d'items basée sur un tableau. La directive `v-for` nécessite une syntaxe spéciale de la forme `item in items`, où `items` est le tableau de données source et `item` est un **alias** pour l'élément du tableau sur lequel on itère :
+
+```javascript
+const items = [{ message: 'Foo' }, { message: 'Bar' }]
+```
+
+```html
+<li v-for="item in items">
+  {{ item.message }}
+</li>
+```
+
+À l'intérieur de la portée du `v-for`, les expressions du template ont accès à toutes les propriétés de la portée du parent. De plus, `v-for` supporte également un second et optionnel alias pour l'index de l'item actuel :
+
+```javascript
+const parentMessage = 'Parent'
+const items = [{ message: 'Foo' }, { message: 'Bar' }]
+```
+
+```html
+<li v-for="(item, index) in items">
+  {{ parentMessage }} - {{ index }} - {{ item.message }}
+</li>
+```
+
+Donnera le résultat ci-dessous.
+
+* Parent - 0 - Foo
+* Parent - 1 - Bar
+
+{% hint style="info" %}
+Noté que contrairement au PHP par exemple, l'index est le second argument (c'est l'équivalent du "i") dans les boucles for, ou du "key" dans les foreach, mais par contre le sens et la syntaxe est identique à un forEach en JavaScript
+{% endhint %}
+
+
+
+### v-for imbriqués
+
+Pour les `v-for` imbriqués, les portées fonctionnent de la même manière qu'avec les fonctions imbriquées. Chaque portée de `v-for` a accès aux portées de ses parents :
+
+```html
+<li v-for="item in items">
+  <span v-for="childItem in item.children">
+    {{ item.message }} {{ childItem }}
+  </span>
+</li>
+```
+
+### `v-for` avec un objet <a href="#v-for-with-an-object" id="v-for-with-an-object"></a>
+
+Vous pouvez également utiliser `v-for` pour itérer sur les propriétés d'un objet. L'ordre d'itération sera basé sur le résultat de l'appel à `Object.keys()` sur l'objet :
+
+```javascript
+const myObject = {
+  title: 'How to do lists in Vue',
+  author: 'Jane Doe',
+  publishedAt: '2016-04-10'
+}
+```
+
+```html
+<ul>
+  <li v-for="value in myObject">
+    {{ value }}
+  </li>
+</ul>
+```
+
+Vous pouvez également fournir un second alias pour le nom de la propriété (aussi appelé clé) :
+
+```html
+<li v-for="(value, key) in myObject">
+  {{ key }}: {{ value }}
+</li>
+```
+
+Et un autre pour l'index :
+
+```html
+<li v-for="(value, key, index) in myObject">
+  {{ index }}. {{ key }}: {{ value }}
+</li>
+```
+
+### `v-for` avec une portée <a href="#v-for-with-a-range" id="v-for-with-a-range"></a>
+
+`v-for` peut également prendre un nombre entier. Dans ce cas il va répéter le template un certain nombre de fois, basé sur une portée `1...n`.
+
+```html
+<span v-for="n in 10">{{ n }}</span>
+```
+
+{% hint style="warning" %}
+Notez qu'ici `n` démarre avec une valeur initiale de `1` au lieu de `0`.
+{% endhint %}
+
+### `v-for` sur le `<template>`[#](https://fr.vuejs.org/guide/essentials/list.html#v-for-on-template) <a href="#v-for-on-template" id="v-for-on-template"></a>
+
+Comme le modèle `v-if`, vous pouvez aussi utiliser une balise `<template>` avec `v-for` pour effectuer le rendu d'un bloc composé de plusieurs éléments. Par exemple :
+
+```html
+<ul>
+  <template v-for="item in items">
+    <li>{{ item.msg }}</li>
+    <li class="divider" role="presentation"></li>
+  </template>
+</ul>
+```
+
+## Exercices <a href="#displaying-filtered-sorted-results" id="displaying-filtered-sorted-results"></a>
+
+* Définir un tableau en JavaScript et l'afficher avec une boucle dans le template.
+* Générez un tableau de 10 variables en JavaScript, et l'afficher dans le template
+  * Pour chaque note indiquer si elle est supérieure à 10 (en ajoutant une class green pour la couleur de la texte) ou red pour une note inférieure à 10.

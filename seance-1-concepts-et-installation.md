@@ -336,6 +336,51 @@ Coté JavaScript, la déclaration des variables se fait de manière conventionne
 * Ajoutez 3 variables (note1, note2 et note3) et affichez ces 3 notes et la moyenne.
 * Ajoutez une variable de type tableau contenant une liste de mot. Affichez cette liste.
 
+## Propriétés calculées (computed)
+
+Le calcul de la moyenne de l'exercice précédent est pratique, mais si on souhaite l'utiliser à plusieurs endroits il faudra refaire le calcul. Par ailleurs, on pourrait exploiter une boucle en JavaScript, ou manipuler des variables qui se composent elles mêmes de plusieurs autres variables. Tout cela est possible avec Vue.js, en utilisant des **propriétés calculées**, dites `computed.`
+
+La syntaxe d'une propriété calculée est la suivante (dans la partie script) :
+
+{% code lineNumbers="true" %}
+```javascript
+const somme = computed(() => {
+  return note1 + note2 + note3
+})
+```
+{% endcode %}
+
+Une propriété calculée est une constante, avec un nom, l'instruction `computed`, puis une fonction anonyme en JavaScript.
+
+Pour fonctionner ce code nécessite d'importer l'instruction computed qui est native dans Vue.js avec la ligne ci-dessous :&#x20;
+
+```javascript
+import { computed } from 'vue'
+```
+
+Le code complet serait donc :&#x20;
+
+```javascript
+<script setup>
+import { computed } from 'vue'
+
+const note1 = 18
+const note2 = 16
+const note3 = 13
+
+const moyenne = computed(() => {
+  return (note1 + note2 + note3) / 3 
+})
+
+</script>
+```
+
+L'utilisation dans la partie template se fait en considérant moyenne comme une variable classique. On peut donc l'utiliser pour un affichage avec `{{ moyenne }}` ou dans des tests ou boucles, ou d'autres opérations.\
 
 
-\
+## Réactivité
+
+{% hint style="info" %}
+Cela ne concerne que l'approche par "composition" de Vue.js 3. La source de cette partie est la traduction de la documentation ici : [https://vuejs.org/guide/essentials/reactivity-fundamentals.html](https://vuejs.org/guide/essentials/reactivity-fundamentals.html)
+{% endhint %}
+

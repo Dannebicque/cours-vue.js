@@ -5,7 +5,7 @@
 * [Séance 2 : Boucles et tests](seance-2-hello-world.md)
 * [Séance 3 : Écouter des événements](seance-3-premier-composant.md)
 * [Séance 4 : Manipuler les formulaires](seance-4-boucles-et-tests.md)
-* [Séance 5 : Cycle de vie et Observateurs](seance-5-boucles-et-tests.md)
+* [Séance 5 : Cycle de vie et premiers pas avec les API](seance-5-boucles-et-tests.md)
 * [Séance 6 : Api (Axios / Fetch)](seance-6-api-axios-fetch.md)
 * [Séance 7 : Api (Axios / Fetch)](seance-7-api-axios-fetch.md)
 * [Séance 8 : Composants et API](seance-8-composants-et-api.md)

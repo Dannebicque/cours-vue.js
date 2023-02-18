@@ -41,7 +41,7 @@ Dans cet extrait de code la ligne 1 contient la notation `@click` (qu'on peut au
 
 * Testez le code ci-dessus avec le bouton.
 
-### `v-else-if` <a href="#v-else-if" id="v-else-if"></a>
+### `v-else-if`
 
 Le `v-else-if`, comme son nom l'indique, sert de bloc "else if" lié à un `v-if`. Il peut également être enchaîné plusieurs fois:
 
@@ -62,7 +62,7 @@ Le `v-else-if`, comme son nom l'indique, sert de bloc "else if" lié à un `v-if
 
 Similaire à `v-else`, un bloc `v-else-if` doit immédiatement suivre un bloc `v-if` ou `v-else-if`.
 
-### Exercice
+### Exercices
 
 * Définir 5 notes, et pour chacune indiquer en Vue.js si elles sont supérieures à 10 ou non.
 * Modifier le code pour différencier les notes entre 8 et 10

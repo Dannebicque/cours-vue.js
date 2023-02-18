@@ -1,7 +1,7 @@
 # Séance 3 : Gestion d'événement
 
 {% hint style="info" %}
-Cette partie est une traduction/adaptation de la documentation officielle située : https://vuejs.org/guide/essentials/event-handling.html
+Cette partie est une traduction/adaptation de la documentation officielle située : [https://vuejs.org/guide/essentials/event-handling.html](https://vuejs.org/guide/essentials/event-handling.html)
 {% endhint %}
 
 

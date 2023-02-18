@@ -1,15 +1,14 @@
-# Séance 3 : Gestion d'événement
+# Séance 3 : Écouter des événements
 
 {% hint style="info" %}
 Cette partie est une traduction/adaptation de la documentation officielle située : [https://vuejs.org/guide/essentials/event-handling.html](https://vuejs.org/guide/essentials/event-handling.html)
 {% endhint %}
 
-
 ## Écouter des événements
 
 Nous pouvons utiliser la directive `v-on`, qui peut se résumer par le symbole `@`, pour écouter les événements DOM et exécuter du JavaScript lorsqu'ils sont déclenchés. L'utilisation serait alors `v-on:click="handler"` ou avec le raccourci, `@click="handler"`.
 
-`handler` peut soit être du code JavaScript (on parle de gestionnaire en ligne ou *inline handlers*), soit une méthode définie dans la partie script (on parle de méthode gestionnaire ou *method handler*).
+`handler` peut soit être du code JavaScript (on parle de gestionnaire en ligne ou _inline handlers_), soit une méthode définie dans la partie script (on parle de méthode gestionnaire ou _method handler_).
 
 ### Gestionnaire en ligne
 
@@ -39,6 +38,7 @@ Cette solution est pratique pour les interactions simples, mais elle ne permet p
 <button @click="greet">Greet</button>
 ```
 
+{% code lineNumbers="true" %}
 ```javascript
 const name = ref('Vue.js')
 
@@ -50,6 +50,7 @@ function greet(event) {
   }
 }
 ```
+{% endcode %}
 
 Notre bouton appelle ici une méthode nommée `greet`. Cette méthode est définie dans la partie script. Elle affiche une alerte avec le message "Hello Vue.js!". Elle prend, automatiquement, en paramètre un événement natif du DOM.
 

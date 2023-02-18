@@ -16,6 +16,7 @@ Chaque case rouge est un moment où il est possible d'intéragir avec le composa
 
 Par exemple, le hook `onMounted` peut être utilisé pour exécuter du code après que le composant ait terminé son rendu initial et créer les nœuds du DOM (sur la case route `mounted` du schéma ci-dessus):
 
+{% code lineNumbers="true" %}
 ```javascript
 <script setup>
 import { onMounted } from 'vue'
@@ -25,6 +26,7 @@ onMounted(() => {
 })
 </script>
 ```
+{% endcode %}
 
 Il y a également d'autres hooks qui peuvent être appelés à différentes étapes du cycle de vie de l'instance, dont les plus couramment utilisés sont onMounted, onUpdated, et onUnmounted.
 
@@ -40,6 +42,7 @@ Il est possible d'utiliser la méthode fetch pour récupérer des données depui
 
 ### Exemple d'utilisation de fetch
 
+{% code lineNumbers="true" %}
 ```javascript
 <script setup>
 import { onMounted } from 'vue'
@@ -51,11 +54,13 @@ onMounted(async () => {
 })
 </script>
 ```
+{% endcode %}
 
 ### Exemple d'utilisation de axios
 
 Axios n'étant pas natif, il faut d'abord l'installer avec la commande `npm install axios` ou `yarn add axios`.
 
+{% code lineNumbers="true" %}
 ```javascript
 <script setup>
 import { onMounted } from 'vue'
@@ -67,6 +72,7 @@ onMounted(async () => {
 })
 </script>
 ```
+{% endcode %}
 
 {% hint style="info" %}
 Pour la suite, nous allons utiliser axios. Mais libre à vous d'utiliser la méthode que vous préférez. Le code et la logique seront sensiblement identiques
@@ -78,6 +84,7 @@ Pour la suite, nous allons utiliser axios. Mais libre à vous d'utiliser la mét
 
 Créons un composant qui va récupérer des données depuis une API et les afficher dans la page.
 
+{% code lineNumbers="true" %}
 ```javascript
 <template>
   <div>
@@ -98,11 +105,13 @@ onMounted(async () => {
 })
 </script>
 ```
+{% endcode %}
 
 ### Utilisation du composant
 
 Nous allons maintenant utiliser ce composant dans notre application.
 
+{% code lineNumbers="true" %}
 ```javascript
 
 <template>
@@ -122,6 +131,7 @@ export default {
 }
 </script>
 ```
+{% endcode %}
 
 ### Explications
 
@@ -131,6 +141,7 @@ Dans le composant App, nous avons importé le composant API et nous l'avons ajou
 
 A partir de là, `data` est accessible dans le template du composant App, et donc dans le template du composant API. Cette variable contient toutes les données retournées par l'API, et il est donc possible de l'afficher dans le template de manière plus fine.
 
+{% code lineNumbers="true" %}
 ```javascript
 <template>
   <div>
@@ -151,6 +162,7 @@ onMounted(async () => {
 })
 </script>
 ```
+{% endcode %}
 
 Ce code ne fonctionne que si votre réponse json contient une entrée `title`. Ce qui est le cas dans l'exemple ici qui renvoi la réponse suivante :
 

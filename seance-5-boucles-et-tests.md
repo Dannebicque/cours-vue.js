@@ -1,16 +1,14 @@
-# Séance 5 : Cycle de vie et API
+# Séance 5 : Cycle de vie et premiers pas avec les API
 
 {% hint style="info" %}
-
 Cette séance est la traduction/adaptation de la documentation officielle se trouvant ici : [https://vuejs.org/guide/essentials/lifecycle.html](https://vuejs.org/guide/essentials/lifecycle.html)
-
 {% endhint %}
 
 Chaque instance d'un composant Vue passe par une série d'étapes d'initialisation lorsqu'elle est créée - par exemple, il faut paramétrer l'observation des données, compiler le template, monter l'instance sur le DOM, et le mettre à jour lorsque les données changent. En cours de route, des fonctions appelées hooks du cycle de vie sont également exécutées, donnant la possibilité à l'utilisateur d'ajouter son propre code à des étapes spécifiques.
 
 Ci-dessous figure le diagramme du cycle de vie d'une instance.
 
-[!https://fr.vuejs.org/assets/lifecycle.6903e504.png](Cycle de vie d'un composant Vue)
+!\[https://fr.vuejs.org/assets/lifecycle.6903e504.png]\(Cycle de vie d'un composant Vue)
 
 Chaque case rouge est un moment où il est possible d'intéragir avec le composant.
 
@@ -35,11 +33,9 @@ Il peut être intéressant d'utiliser ce hook pour effectuer des actions lorsque
 ## Accès aux données depuis un appel API
 
 {% hint style="info" %}
-
 **Les appels API peuvent se faire à chaque fois que nécessaire, dans des méthodes, dans des hooks, ...**
 
-Il est possible d'utiliser la méthode fetch pour récupérer des données depuis une API, qui est native à JavaScript. (voir [https://developer.mozilla.org/fr/docs/Web/API/Fetch\_API](https://developer.mozilla.org/fr/docs/Web/API/Fetch_API)). Il existe également la librairie axios qui permet de faire des appels API plus facilement, et qui est très utilisée dans le monde Vue.js (et les framework frot en général). (voir [https://axios-http.com/fr/docs/intro](https://axios-http.com/fr/docs/intro))
-
+Il est possible d'utiliser la méthode fetch pour récupérer des données depuis une API, qui est native à JavaScript. (voir [https://developer.mozilla.org/fr/docs/Web/API/Fetch\_API](https://developer.mozilla.org/fr/docs/Web/API/Fetch\_API)). Il existe également la librairie axios qui permet de faire des appels API plus facilement, et qui est très utilisée dans le monde Vue.js (et les framework frot en général). (voir [https://axios-http.com/fr/docs/intro](https://axios-http.com/fr/docs/intro))
 {% endhint %}
 
 ### Exemple d'utilisation de fetch
@@ -73,9 +69,7 @@ onMounted(async () => {
 ```
 
 {% hint style="info" %}
-
 Pour la suite, nous allons utiliser axios. Mais libre à vous d'utiliser la méthode que vous préférez. Le code et la logique seront sensiblement identiques
-
 {% endhint %}
 
 ## Utilisation de l'API

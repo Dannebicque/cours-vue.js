@@ -8,7 +8,7 @@ Chaque instance d'un composant Vue passe par une série d'étapes d'initialisati
 
 Ci-dessous figure le diagramme du cycle de vie d'une instance.
 
-!\[https://fr.vuejs.org/assets/lifecycle.6903e504.png]\(Cycle de vie d'un composant Vue)
+!\[Cycle de vie d'un composant Vue]\(https://fr.vuejs.org/assets/lifecycle.6903e504.png)
 
 Chaque case rouge est un moment où il est possible d'intéragir avec le composant.
 

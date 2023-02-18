@@ -16,7 +16,7 @@ La directive `v-if` est utilisée pour restituer conditionnellement un bloc. Le 
 <h1 v-if="awesome">Vue est magnifique!</h1>
 ```
 
-Dans cet exemple awesome doit être une variable définie dans la partie script.
+Dans cet exemple `awesome` doit être une variable définie dans la partie script.
 
 ### `v-else`
 

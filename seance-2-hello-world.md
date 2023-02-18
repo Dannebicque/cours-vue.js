@@ -8,7 +8,7 @@ Comme tous les langages, il est possible d'avoir des conditions/tests, des boucl
 Cette partie reprend la traduction de la documentation officielle se trouvant ici : [https://vuejs.org/guide/essentials/conditional.html](https://vuejs.org/guide/essentials/conditional.html)
 {% endhint %}
 
-### `v-if` <a href="#v-if" id="v-if"></a>
+### `v-if`
 
 La directive `v-if` est utilisée pour restituer conditionnellement un bloc. Le bloc ne sera rendu que si l'expression de la directive retourne une valeur évaluée à vrai.
 
@@ -18,7 +18,7 @@ La directive `v-if` est utilisée pour restituer conditionnellement un bloc. Le 
 
 Dans cet exemple awesome doit être une variable définie dans la partie script.
 
-### `v-else` <a href="#v-else" id="v-else"></a>
+### `v-else`
 
 Vous pouvez utiliser la directive `v-else` pour indiquer un bloc "sinon" lié à un `v-if`:
 
@@ -37,7 +37,7 @@ Un élément `v-else` doit immédiatement suivre un élément `v-if` ou un élé
 Dans cet extrait de code la ligne 1 contient la notation `@click` (qu'on peut aussi écrire `v-on:click`) qui va déclencher quelque chose lors d'un clic. C'est le déclenchement d'un événement sur le DOM. Nous y reviendrons par la suite. A chaque clique, la variable `awesome` recevra son inverse.
 {% endhint %}
 
-### Exercice&#x20;
+### Exercice
 
 * Testez le code ci-dessus avec le bouton.
 
@@ -67,7 +67,7 @@ Similaire à `v-else`, un bloc `v-else-if` doit immédiatement suivre un bloc `v
 * Définir 5 notes, et pour chacune indiquer en Vue.js si elles sont supérieures à 10 ou non.
 * Modifier le code pour différencier les notes entre 8 et 10
 
-### `v-if` avec `<template>` <a href="#v-if-on-template" id="v-if-on-template"></a>
+### `v-if` avec `<template>`
 
 Puisque `v-if` est une directive, elle doit être attachée à un seul élément. Mais que se passe-t-il si nous voulons basculer plus d'un élément ? Dans ce cas, nous pouvons utiliser `v-if` sur un élément `<template>`, qui sert de conteneur invisible. Le résultat du rendu final n'inclura pas l'élément `<template>`.
 
@@ -81,7 +81,7 @@ Puisque `v-if` est une directive, elle doit être attachée à un seul élément
 
 `v-else` et `v-else-if` peuvent également être utilisés dans `<template>`.
 
-### `v-show` <a href="#v-show" id="v-show"></a>
+### `v-show`
 
 Une autre option pour afficher conditionnellement un élément est la directive `v-show`. L'utilisation est sensiblement la même:
 
@@ -93,7 +93,7 @@ La différence est qu'un élément avec `v-show` sera toujours rendu et restera 
 
 `v-show` ne prend pas en charge l'élément `<template>`, et ne fonctionne pas avec `v-else`.
 
-### `v-if` vs. `v-show` <a href="#v-if-vs-v-show" id="v-if-vs-v-show"></a>
+### `v-if` vs. `v-show`
 
 `v-if` est un rendu conditionnel "réel" car il garantit que les écouteurs d'événements et les composants enfants à l'intérieur du bloc conditionnel sont correctement détruits et recréés lors des basculements.
 
@@ -109,7 +109,7 @@ De manière générale, `v-if` a des coûts de basculement plus élevés tandis 
 Extrait de la traduction de la page : [https://vuejs.org/guide/essentials/list.html](https://vuejs.org/guide/essentials/list.html)
 {% endhint %}
 
-### `v-for` <a href="#v-for" id="v-for"></a>
+### `v-for`
 
 Nous pouvons utiliser la directive `v-for` pour rendre une liste d'items basée sur un tableau. La directive `v-for` nécessite une syntaxe spéciale de la forme `item in items`, où `items` est le tableau de données source et `item` est un **alias** pour l'élément du tableau sur lequel on itère :
 
@@ -145,8 +145,6 @@ Donnera le résultat ci-dessous.
 Noté que contrairement au PHP par exemple, l'index est le second argument (c'est l'équivalent du "i") dans les boucles for, ou du "key" dans les foreach, mais par contre le sens et la syntaxe est identique à un forEach en JavaScript
 {% endhint %}
 
-
-
 ### v-for imbriqués
 
 Pour les `v-for` imbriqués, les portées fonctionnent de la même manière qu'avec les fonctions imbriquées. Chaque portée de `v-for` a accès aux portées de ses parents :
@@ -159,7 +157,7 @@ Pour les `v-for` imbriqués, les portées fonctionnent de la même manière qu'a
 </li>
 ```
 
-### `v-for` avec un objet <a href="#v-for-with-an-object" id="v-for-with-an-object"></a>
+### `v-for` avec un objet
 
 Vous pouvez également utiliser `v-for` pour itérer sur les propriétés d'un objet. L'ordre d'itération sera basé sur le résultat de l'appel à `Object.keys()` sur l'objet :
 
@@ -195,7 +193,7 @@ Et un autre pour l'index :
 </li>
 ```
 
-### `v-for` avec une portée <a href="#v-for-with-a-range" id="v-for-with-a-range"></a>
+### `v-for` avec une portée
 
 `v-for` peut également prendre un nombre entier. Dans ce cas il va répéter le template un certain nombre de fois, basé sur une portée `1...n`.
 
@@ -207,7 +205,7 @@ Et un autre pour l'index :
 Notez qu'ici `n` démarre avec une valeur initiale de `1` au lieu de `0`.
 {% endhint %}
 
-### `v-for` sur le `<template>`[#](https://fr.vuejs.org/guide/essentials/list.html#v-for-on-template) <a href="#v-for-on-template" id="v-for-on-template"></a>
+### `v-for` sur le `<template>`
 
 Comme le modèle `v-if`, vous pouvez aussi utiliser une balise `<template>` avec `v-for` pour effectuer le rendu d'un bloc composé de plusieurs éléments. Par exemple :
 
@@ -220,7 +218,7 @@ Comme le modèle `v-if`, vous pouvez aussi utiliser une balise `<template>` avec
 </ul>
 ```
 
-## Exercices <a href="#displaying-filtered-sorted-results" id="displaying-filtered-sorted-results"></a>
+## Exercices
 
 * Définir un tableau en JavaScript et l'afficher avec une boucle dans le template.
 * Générez un tableau de 10 variables en JavaScript, et l'afficher dans le template

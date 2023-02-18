@@ -24,7 +24,7 @@ Assurez vous de disposer de nodeJs et de npm fonctionnels, testez avec la comman
 
 Pour créer un nouveau projet, tapez la commande suivante :
 
-```
+```bash
 npm init vue@latest
 ```
 
@@ -36,7 +36,7 @@ Répondez aux différentes questions. Par défaut mettez toutes les questions su
 
 Executez les commandes suivantes :
 
-```
+```bash
   cd vue-lp
   npm install
   npm run dev
@@ -45,8 +45,6 @@ Executez les commandes suivantes :
 La première commande accède au répertoire, la deuxième installe toute les dépendances (comme `composer install` avec PHP/Syfmony), la dernière lance le serveur qui va s'occuper de compiler les fichiers et rendre l'application "Vue.js" utilisable dans tous les navigateurs.
 
 Vous devriez voir un message vous proposant l'url de votre projet "compilé". Ouvrez-là et vous devriez avoir une page similaire à celle ci-dessous :&#x20;
-
-
 
 <figure><img src=".gitbook/assets/Capture d’écran 2023-02-05 à 18.35.51.png" alt=""><figcaption><p>Page d'accueil suite à la première installation d'un projet Vue.js</p></figcaption></figure>
 
@@ -338,7 +336,7 @@ Coté JavaScript, la déclaration des variables se fait de manière conventionne
 
 ## Propriétés calculées (computed)
 
-Le calcul de la moyenne de l'exercice précédent est pratique, mais si on souhaite l'utiliser à plusieurs endroits il faudra refaire le calcul. Par ailleurs, on pourrait exploiter une boucle en JavaScript, ou manipuler des variables qui se composent elles mêmes de plusieurs autres variables. Tout cela est possible avec Vue.js, en utilisant des **propriétés calculées**, dites `computed.`
+Le calcul de la moyenne de l'exercice précédent est pratique, mais si on souhaite l'utiliser à plusieurs endroits il faudra refaire le calcul. Par ailleurs, on pourrait exploiter une boucle en JavaScript, ou manipuler des variables qui se composent elles mêmes de plusieurs autres variables. Tout cela est possible avec Vue.js, en utilisant des **propriétés calculées**, dites `computed`.
 
 La syntaxe d'une propriété calculée est la suivante (dans la partie script) :
 
@@ -352,13 +350,13 @@ const somme = computed(() => {
 
 Une propriété calculée est une constante, avec un nom, l'instruction `computed`, puis une fonction anonyme en JavaScript.
 
-Pour fonctionner ce code nécessite d'importer l'instruction computed qui est native dans Vue.js avec la ligne ci-dessous :&#x20;
+Pour fonctionner ce code nécessite d'importer l'instruction computed qui est native dans Vue.js avec la ligne ci-dessous :
 
 ```javascript
 import { computed } from 'vue'
 ```
 
-Le code complet serait donc :&#x20;
+Le code complet serait donc :
 
 ```javascript
 <script setup>
@@ -375,8 +373,7 @@ const moyenne = computed(() => {
 </script>
 ```
 
-L'utilisation dans la partie template se fait en considérant moyenne comme une variable classique. On peut donc l'utiliser pour un affichage avec `{{ moyenne }}` ou dans des tests ou boucles, ou d'autres opérations.\
-
+L'utilisation dans la partie template se fait en considérant moyenne comme une variable classique. On peut donc l'utiliser pour un affichage avec `{{ moyenne }}` ou dans des tests ou boucles, ou d'autres opérations.
 
 ## Réactivité
 

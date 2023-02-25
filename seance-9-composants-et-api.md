@@ -8,7 +8,7 @@ Dans une application monopage (SPA), le JavaScript côté client doit intercepte
 
 Dans ces SPA, le "routage" est donc effectué côté client, dans le navigateur.
 
-Vue.js propose un système de routage nommé (https://github.com/vuejs/router)[VueRouter], officiellement supporté, qui permet de créer des applications SPA. La documentation officielle se trouve ici : (https://router.vuejs.org/)[https://router.vuejs.org/]. Tout comme dans les frmameworks back, le système de route est très puissant et permet une contrôle précis de vos URL et des actions associés.
+Vue.js propose un système de routage nommé [VueRouter](https://github.com/vuejs/router), officiellement supporté, qui permet de créer des applications SPA. La documentation officielle se trouve ici : [https://router.vuejs.org/](https://router.vuejs.org/). Tout comme dans les frmameworks back, le système de route est très puissant et permet une contrôle précis de vos URL et des actions associés.
 
 ## Premier exemple
 

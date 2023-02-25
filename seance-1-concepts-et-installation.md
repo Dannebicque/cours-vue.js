@@ -14,8 +14,6 @@ Site officiel de Vue.js 3
 
 ## Présentation des concepts de Vue.js
 
-
-
 ## Installation et démarrage d'une nouveau projet.
 
 Assurez vous de disposer de nodeJs et de npm fonctionnels, testez avec la commande ci-dessous
@@ -44,9 +42,9 @@ Executez les commandes suivantes :
 
 La première commande accède au répertoire, la deuxième installe toute les dépendances (comme `composer install` avec PHP/Syfmony), la dernière lance le serveur qui va s'occuper de compiler les fichiers et rendre l'application "Vue.js" utilisable dans tous les navigateurs.
 
-Vous devriez voir un message vous proposant l'url de votre projet "compilé". Ouvrez-là et vous devriez avoir une page similaire à celle ci-dessous :&#x20;
+Vous devriez voir un message vous proposant l'url de votre projet "compilé". Ouvrez-là et vous devriez avoir une page similaire à celle ci-dessous :
 
-<figure><img src=".gitbook/assets/Capture d’écran 2023-02-05 à 18.35.51.png" alt=""><figcaption><p>Page d'accueil suite à la première installation d'un projet Vue.js</p></figcaption></figure>
+<figure><img src=".gitbook/assets/Capture d’écran 2023-02-05 à 18.35.51.png" alt=""><figcaption><p>Page d'accueil suite à la première installation d'un projet Vue.js</p></figcaption></figure>
 
 ## Premier exemple
 
@@ -111,7 +109,7 @@ const reseau = 13
 
 ## Reprenons depuis le début
 
-### Analysons notre répertoire de projet&#x20;
+### Analysons notre répertoire de projet
 
 * **node\_module** : contient toutes les dépendances de notre projet. Il est créé par la commande `npm install`. Il ne faut rien modifier dans ce dossier, et ne jamais le gérer avec git. Son équivalent dans Symfony est vendor.
 * **public** : c'est le repertoire "public", qui contient les éléments type images, favicon, les fichiers uploadés par vos utilisateurs, ... Il a le même rôle que "public" dans symfony.
@@ -184,14 +182,14 @@ li {
 
 #### Structure d'un fichier Vue.js (.vue)
 
-Si on utilise vue en mode "composant" ([https://fr.vuejs.org/guide/scaling-up/sfc.html#introduction](https://fr.vuejs.org/guide/scaling-up/sfc.html#introduction)) (c'est à dire avec des fichiers .vue ou SFC (_single file component_)) et en mode Composition API, un fichier .vue à les éléments suivants :&#x20;
+Si on utilise vue en mode "composant" ([https://fr.vuejs.org/guide/scaling-up/sfc.html#introduction](https://fr.vuejs.org/guide/scaling-up/sfc.html#introduction)) (c'est à dire avec des fichiers .vue ou SFC (_single file component_)) et en mode Composition API, un fichier .vue à les éléments suivants :
 
 * template : qui contient le code HTML de votre composant (une partie de votre page). Ce code peut exploiter lui même d'autres composants Vue.js. La balise template doit contenir un seul enfant dans le dom.
 * script : qui va contenir votre code JavaScript : les variables, les méthodes, les différents imports...
 * style : optionnel, pour contenir le CSS propre au composant.
 
 {% hint style="info" %}
-### Pourquoi les composants monofichiers (SFC)[#](https://fr.vuejs.org/guide/scaling-up/sfc.html#why-sfc) <a href="#why-sfc" id="why-sfc"></a>
+#### Pourquoi les composants monofichiers (SFC)[#](https://fr.vuejs.org/guide/scaling-up/sfc.html#why-sfc) <a href="#why-sfc" id="why-sfc"></a>
 
 Si les SFC nécessitent une étape de compilation, les avantages sont nombreux en contrepartie :
 
@@ -246,7 +244,7 @@ C'est le fichier clé de votre application, l'équivalent du index.php de Symfon
 
 Vue utilise une syntaxe de template basée sur HTML pour permettre de lier de manière déclarative le DOM rendu aux données de l'instance du composant sous-jacent. Tous les templates Vue sont du HTML syntaxiquement valide qui peut être analysé par des navigateurs et des analyseurs HTML conformes aux spécifications. A titre de comparaison ReactJs utilise du JSX pour décrire la partie HTML.
 
-La forme la plus élémentaire de liaison de données est l'interpolation de texte à l'aide de la syntaxe "Moustache" (doubles accolades) :&#x20;
+La forme la plus élémentaire de liaison de données est l'interpolation de texte à l'aide de la syntaxe "Moustache" (doubles accolades) :
 
 ```javascript
 Message : {{ msg }}
@@ -256,7 +254,7 @@ Dans cet exemple `msg` est une variable dont le contenu doit être défini dans 
 
 #### Dans des attributs ou des balises
 
-Si vous souhaitez passer une variable dans une balise HTML (ou un composant Vue.js), ou dans un attribut, vous ne pouvez pas utiliser la syntaxe "moustache" avec les accolades. Vous devez passer par l'instruction `v-bind`, exemple :&#x20;
+Si vous souhaitez passer une variable dans une balise HTML (ou un composant Vue.js), ou dans un attribut, vous ne pouvez pas utiliser la syntaxe "moustache" avec les accolades. Vous devez passer par l'instruction `v-bind`, exemple :
 
 ```html
 <div v-bind:id="idDynamique"></div>
@@ -264,13 +262,13 @@ Si vous souhaitez passer une variable dans une balise HTML (ou un composant Vue.
 
 Dans cet exemple `idDynamique` est donc la variable qui alimentera l'attribut **id** de la balise `div.`
 
-Il existe une syntaxe "courte" qui peut s'écrire sans le `v-bind` comme ci-dessous :&#x20;
+Il existe une syntaxe "courte" qui peut s'écrire sans le `v-bind` comme ci-dessous :
 
 ```html
 <div :id="idDynamique"></div>
 ```
 
-#### Passer plusieurs attributs 
+#### Passer plusieurs attributs
 
 Si vous avez un objet JavaScript représentant plusieurs attributs qui ressemble à ceci :
 
@@ -303,7 +301,7 @@ Les variables entre accolades peuvent être manipulées comme toutes les variabl
 
 #### Concaténer des variables et du texte
 
-Si vous souhaitez construire un mot contenant du texte et une variable, vous pouvez utiliser la syntaxe ci-dessous :&#x20;
+Si vous souhaitez construire un mot contenant du texte et une variable, vous pouvez utiliser la syntaxe ci-dessous :
 
 ```html
 <div :id="`liste-${id}`"></div>
@@ -380,4 +378,3 @@ L'utilisation dans la partie template se fait en considérant moyenne comme une 
 {% hint style="info" %}
 Cela ne concerne que l'approche par "composition" de Vue.js 3. La source de cette partie est la traduction de la documentation ici : [https://vuejs.org/guide/essentials/reactivity-fundamentals.html](https://vuejs.org/guide/essentials/reactivity-fundamentals.html)
 {% endhint %}
-

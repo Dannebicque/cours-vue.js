@@ -158,6 +158,79 @@ Remarque : comme nous allons essayer de passer le contenu d'une variable dans un
 
 Il est possible de passer des props d'un composant à un autre. En reprenant l'exemple ci-dessous, définissez un composant pour un bouton "Lire Plus" (et le composant associé LirePlus) sur votre article qui n'affichera qu'un résumé. Passé depuis le composant Post, l'id de l'article au composant LirePlus.
 
-### Exercice 3
+## Écouter des événements
+
+Les props permettent donc de communiquer du parent vers l'enfant. Mais comment communiquer de l'enfant vers le parent ?
+
+Les composants enfants peuvent émettre des événements, qui peuvent être écoutés par le composant parent.
+
+Reprennons l'exemple de la documentation.
+
+Par exemple, on peut décider d'ajouter une fonctionnalité d'accessibilité permettant d'agrandir le texte des articles du blog, tout en laissant la taille par défaut sur le reste de la page.
+
+Dans le parent, nous développons cette fonctionnalité en ajoutant une variable `postFontSize` (qui doit être réactive) :
+
+```javascript
+const posts = ref([
+  /* ... */
+])
+
+const postFontSize = ref(1)
+```
+
+Qui pourra être utilisée dans le template afin de contrôler la taille de police de tous les articles du blog :
+
+```javascript
+<div :style="{ fontSize: postFontSize + 'em' }">
+  <BlogPost
+    v-for="post in posts"
+    :key="post.id"
+    :title="post.title"
+   />
+</div>
+```
+
+Maintenant ajoutons un bouton dans le template du composant `<BlogPost>` :
+
+```javascript
+<!-- BlogPost.vue, omitting <script> -->
+<template>
+  <div class="blog-post">
+    <h4>{{ title }}</h4>
+    <button>Enlarge text</button>
+  </div>
+</template>
+```
+
+Pour le moment le bouton ne fait rien. Nous voulons que le clique communique au parent qu'il doit agrandir le texte de tous les articles. Pour résoudre ce problème, les composants fournissent un système personnalisé d'événements. Le parent peut choisir d'écouter n'importe quel événement de l'instance du composant enfant grâce à `v-on` ou `@`, nous l'avons déjà vue dans une précédente partie :
+
+```javascript
+<BlogPost
+  ...
+  @enlarge-text="postFontSize += 0.1"
+ />
+ ```
+
+Ensuite le composant enfant peut émettre lui-même un événement en appelant la méthode intégrée `$emit`, et en lui passant le nom de l'événement :
+
+```javascript
+<!-- BlogPost.vue, en omettant <script> -->
+<template>
+  <div class="blog-post">
+    <h4>{{ title }}</h4>
+    <button @click="$emit('enlarge-text')">Enlarge text</button>
+  </div>
+</template>
+```
+
+Grâce à l'écouteur `@enlarge-text="postFontSize += 0.1"`, le parent va recevoir l'événement et mettre à jour la valeur de `postFontSize`.
+
+## Exercice
+
+### Exercice 1
+
+Intégrez cet exemple à votre projet précédent avec vos articles.
+
+### Exercice 2
 
 ??

@@ -12,3 +12,4 @@
 * [Séance 9 : Exercice complet](seance-7-api-axios-fetch.md)
 * [Séance 10 : TP Noté](seance-10-tp-note.md)
 * [Quelques sources](quelques-sources.md)
+* [LP](lp.md)

@@ -90,18 +90,19 @@ Créons un composant qui va récupérer des données depuis une API et les affic
   <div>
     <h1>API</h1>
     <p>{{ data }}</p>
+    <p>{{ data.title }}</p>
   </div>
 </template>
 
 <script setup>
-import { onMounted } from 'vue'
+import { onMounted, ref } from 'vue'
 import axios from 'axios'
 
-let data = ''
+let data = ref('')
 
 onMounted(async () => {
   const response = await axios.get('https://jsonplaceholder.typicode.com/todos/1') //cette URL est une démonstration, vous devez adapter l'URL à votre besoin. La récupération se fait ici en GET, mais il est possible de faire des requêtes POST, PUT, DELETE, ...
-  data = response.data
+  data.value = response.data
 })
 </script>
 ```
@@ -123,12 +124,6 @@ Nous allons maintenant utiliser ce composant dans notre application.
 
 <script setup>
 import API from './components/API.vue'
-
-export default {
-  components: {
-    API
-  }
-}
 </script>
 ```
 {% endcode %}
@@ -151,14 +146,14 @@ A partir de là, `data` est accessible dans le template du composant App, et don
 </template>
 
 <script setup>
-import { onMounted } from 'vue'
+import { onMounted, ref } from 'vue'
 import axios from 'axios'
 
-let data = ''
+let data = ref('')
 
 onMounted(async () => {
   const response = await axios.get('https://jsonplaceholder.typicode.com/todos/1')
-  data = response.data
+  data.value = response.data
 })
 </script>
 ```
@@ -173,6 +168,60 @@ Ce code ne fonctionne que si votre réponse json contient une entrée `title`. C
   "title": "delectus aut autem",
   "completed": false
 }
+```
+
+### API et Formulaires
+
+Si on souhaite récupérer les données précises sur une API, on peut paramètrer l'appel avec des variables.
+
+Par exemple
+
+```javascript
+</template>
+
+<script setup>
+import { onMounted, ref } from 'vue'
+import axios from 'axios'
+
+let data = ref('')
+
+onMounted(async () => {
+  const id = 1
+  const response = await axios.get(`https://jsonplaceholder.typicode.com/todos/${id}`)
+  data.value = response.data
+})
+</script>
+```
+
+Cette solution fonctionnelle, n'est pas très interactive, on pourrait donc récupérer cet id depuis un formulaire (ou l'URL par la suite).
+
+Exemple :
+
+```javascript
+<template>
+  <div>
+    <h1>API</h1>
+
+    <input type="text" v-model="id">
+    <button @click="getApi">Get Data</button>
+    <p>{{ data }}</p>
+    <p>{{ data.title }}</p>
+  </div>
+</template>
+
+<script setup>
+import { onMounted, ref } from 'vue'
+import axios from 'axios'
+
+let data = ref('')
+let id = ref()
+
+async function getApi() {
+  const response = await axios.get(`https://jsonplaceholder.typicode.com/todos/${id.value}`)
+  data.value = response.data
+}
+</script>
+
 ```
 
 ## Exercices

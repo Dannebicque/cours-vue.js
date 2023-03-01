@@ -226,6 +226,13 @@ async function getApi() {
 
 ## Exercices
 
+### Exercice LP
+
+En utilisant l"API : [https://restcountries.com/#api-endpoints-v3-all](https://restcountries.com/#api-endpoints-v3-all)
+
+1. Récupérez et affichez la liste des pays (nom, capitale, langue)
+2. Proposez une barre de recherche affichant les informations d'un pays de votre choix
+
 ### Exercice 1
 
 Créer un composant qui récupère les données d'une API et qui les affiche dans la page sous la forme d'une liste ul/li. Mettre en vert les éléments si le champ `completed` est à `true`. Mettre en rouge les éléments si le champ `completed` est à `false`. (l'URL de l'API est [https://jsonplaceholder.typicode.com/todos/4](https://jsonplaceholder.typicode.com/todos/4) renvoie un exemple de réponse à true).

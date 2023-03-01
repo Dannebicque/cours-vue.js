@@ -82,13 +82,9 @@ function greet(name, event) {
 
 La notation `$event` est une syntaxe spéciale qui permet de passer l'événement natif du DOM en tant qu'argument à la méthode gestionnaire.
 
-## Type d'événement
-
-Par défaut, `v-on` écoute les événements du DOM. Mais il est possible d'écouter des événements personnalisés en utilisant la directive `v-on` avec le modificateur `.native`. Par exemple, si on veut écouter l'événement `click` sur un composant enfant, on peut faire :
-
-```html
-<my-component @click.native="onClick"></my-component>
-```
+{% hint style="info" %}
+Il existe de nombreux événements (change, keyup, keydown, blur...) qui peuvent être écoutés et déclencher des actions.
+{% endhint %}
 
 ## Événement de touche
 
@@ -109,7 +105,3 @@ Créer un composant `Counter` qui affiche deux boutons et un compteur. Le premie
 ### Exercice 2
 
 Faire une boucle permettant d'afficher 4 compteurs. Testez le comportement des boutons.
-
-### Exercice 3
-
-Créer un composant `Carte` qui affiche une image et un titre. Le composant doit avoir deux propriétés : `image` et `titre`. Lorsque l'on clique sur la carte, on doit afficher un message contenant le titre et l'image.

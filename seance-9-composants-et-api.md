@@ -20,7 +20,7 @@ npm install vue-router@4 ou yarn add vue-router@4
 
 Si on souhaite ajouter des liens dans notre application, et définir une partie de notre page qui sera remplacée selon l'URL, on doit utiliser la balise `<router-link>` (pour les liens) et `<router-view>` (pour la partie de la page qui sera remplacée). Si on utilisait une balise `<a>` classique, le comportement par défaut du navigateur serait de recharger la page, ce qui n'est pas ce qu'on veut.
 
-````javascript
+```html
 <template>
   <div id="app">
     <h1>Mon application</h1>
@@ -28,13 +28,13 @@ Si on souhaite ajouter des liens dans notre application, et définir une partie 
     <router-link to="/about">A propos</router-link>
     <router-view></router-view>
   </div>
-```html
+```
 
 Dans le code ci-dessus, on a ajouté deux liens, qui pointent vers les URL `/` et `/about`. On a également ajouté une balise `<router-view>`, qui sera remplacée par le contenu de la page correspondant à l'URL.
 
 Pour que cela fonctionne, il faut ajouter le code suivant dans le fichier `src/main.js` (attention certaines parties sont déjà présentes) :
 
-```js
+```javascript
 import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router'
@@ -63,13 +63,13 @@ const app = Vue.createApp({})
 app.use(router)
 
 app.mount('#app')
-````
+```
 
 On peut accéder aux paramètres de la route, ou à l'objet router depuis n'importe quel composant, en utilisant les fonctions `useRouter` et `useRoute` :
 
 Par exemple :
 
-```js
+```javascript
 import { useRouter, useRoute } from 'vue-router'
 
 const router = useRouter()
@@ -91,5 +91,63 @@ goToDashboard() {
 }
 ```
 
-### Les routes nommées
+## Les routes nommées
 
+Pour des raisons pratiques et pour éviter de manipuler des URL dans le code, on peut définir des routes nommées.
+
+```javascript
+const routes = [
+  { path: '/', component: Home },
+  { path: '/about', component: About },
+  { path: '/user/:username', component: User, name: 'user' },
+]
+```
+
+On peut ensuite utiliser ces routes nommées dans le code :
+
+```html
+  <router-link :to="{name: 'user', params: {username: 'david'}}">
+    Utilisateur
+  </router-link>
+```
+
+Cette syntaxe est plus "pratique" pour passer des paramètres. Par ailleurs, dans cette syntaxe les paramètres sont "échapés" pour éviter les caractères interdits.
+
+## Les routes imbriquées
+
+On peut imbriquer des routes, et ainsi définir des routes "enfant" qui seront affichées dans une route "parent".
+
+```javascript
+const routes = [
+  {
+    path: '/user/:id',
+    component: User,
+    children: [
+      {
+        // UserProfile will be rendered inside User's <router-view>
+        // when /user/:id/profile is matched
+        path: 'profile',
+        component: UserProfile
+      },
+      {
+        // UserPosts will be rendered inside User's <router-view>
+        // when /user/:id/posts is matched
+        path: 'posts',
+        component: UserPosts
+      }
+    ]
+  }
+]
+```
+
+Dans cet exemple profile et posts s'afficheront dans la balise `<router-view>` de la vue associée au composant User.
+
+## Exercices
+
+* Ajoutez un lien et une page permettant d'afficher les détails d'un pays
+* Ajoutez un menu affichant les 6 continents (Region) et les pays associés
+* Structurez vos page avec des composants (header, nav, footer, etc...)
+* Pour chaque fiche pays ajoutez des "onglets" permettant d'organiser l'ensemble des informations du pays (l'organisation est à votre convenance). La page doit contenir au moins 3 "onglets"
+* Ajoutez une page d'accueil avec la barre de recherche. Les résultats s'afficheront dans une popup... Une popup est une fenetre qui est visible ou non, avec un overlay...
+
+* Mettez en place un peu de CSS

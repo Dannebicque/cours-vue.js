@@ -1,8 +1,8 @@
-# Séance 9 : Routes
+# Séance 7 : Routes
 
 Dans une application web classique, on utilise des URL pour changer le comportement de notre application, et le contenu des pages. Ce mécanisme fonctionne en envoyant une requête au serveur, qui nous retourne une page HTML.
 
-Ce mécanisme est intéressant, mais ne permet pas d'avoir des applications dites "SPA" *Single Page Application*, c'est à dire des applications dont on à l'impression que l'intégralité de la page n'est jamais rechargeée, mais seulement une partie. 
+Ce mécanisme est intéressant, mais ne permet pas d'avoir des applications dites "SPA" _Single Page Application_, c'est à dire des applications dont on à l'impression que l'intégralité de la page n'est jamais rechargeée, mais seulement une partie.
 
 Dans une application monopage (SPA), le JavaScript côté client doit intercepter la navigation, récupérer dynamiquement de nouvelles données, et mettre à jour la page actuelle sans la recharger entièrement. Il en résulte généralement une expérience utilisateur plus rapide, en particulier pour les cas d'utilisation qui ressemblent davantage à des "applications" réelles, où l'utilisateur est censé effectuer de nombreuses interactions sur une longue période de temps.
 
@@ -18,10 +18,9 @@ Tout d'abord, dans notre projet, nous devons installer les routes. Normalement c
 npm install vue-router@4 ou yarn add vue-router@4
 ```
 
-Si on souhaite ajouter des liens dans notre application, et définir une partie de notre page qui sera remplacée selon l'URL, on doit utiliser la balise `<router-link>` (pour les liens) et `<router-view>` (pour la partie de la page qui sera remplacée). 
-Si on utilisait une balise `<a>` classique, le comportement par défaut du navigateur serait de recharger la page, ce qui n'est pas ce qu'on veut.
+Si on souhaite ajouter des liens dans notre application, et définir une partie de notre page qui sera remplacée selon l'URL, on doit utiliser la balise `<router-link>` (pour les liens) et `<router-view>` (pour la partie de la page qui sera remplacée). Si on utilisait une balise `<a>` classique, le comportement par défaut du navigateur serait de recharger la page, ce qui n'est pas ce qu'on veut.
 
-```html
+````javascript
 <template>
   <div id="app">
     <h1>Mon application</h1>
@@ -64,7 +63,7 @@ const app = Vue.createApp({})
 app.use(router)
 
 app.mount('#app')
-```
+````
 
 On peut accéder aux paramètres de la route, ou à l'objet router depuis n'importe quel composant, en utilisant les fonctions `useRouter` et `useRoute` :
 
@@ -91,3 +90,6 @@ goToDashboard() {
     }
 }
 ```
+
+### Les routes nommées
+
